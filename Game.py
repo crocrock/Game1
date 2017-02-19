@@ -44,6 +44,7 @@ class Game():
         
         
 def getChoice(max):
+    print("Please enter your choice: ")
     return 0
 
 def displayStatus(user):
