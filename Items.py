@@ -7,6 +7,7 @@ class Item():
         self.weight = 1
         self.uses = 1 #single use by default
         self.broken = False
+        self.destroyed = False
         
     def getName(self):
         return self.name()
@@ -16,6 +17,11 @@ class Item():
         return self.combat
     def getUses(self):
         return self.uses
+    def isFood(self):
+        return False
+    def destroy(self):
+        self.destroyed = True
+        
     
     def useItem(self):
         if self.broken:
@@ -23,6 +29,7 @@ class Item():
         self.uses = self.uses - 1
         if self.uses == 0:
             self.breaks()
+            self.destroy()
         return True
     
     def breaks(self):
