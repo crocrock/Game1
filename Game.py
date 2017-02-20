@@ -19,6 +19,8 @@ class Game():
         print self.user.getLocation().name
         print "User: "
         print self.user.name
+        print "Items: "
+        print self.user.getItems()
         while self.user.isAlive():
             displayStatus(self.user)
             actions = self.user.getLocation().getActions()
@@ -44,11 +46,16 @@ class Game():
         
         
 def getChoice(max):
-    print("Please enter your choice: ")
-    return 0
+    ch = input("Please enter your choice: ")
+    choice = int(ch)
+    if choice < 0 or choice > max-1:
+        print("Invalid choice")
+        choice = getChoice(max)
+    return choice
 
 def displayStatus(user):
     print("User:"+user.name)
+    print("items:"+str(user.getItems()))
     print("Location:"+user.getLocation().name)
     print("Health: "+str(user.health))
     
