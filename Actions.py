@@ -16,7 +16,7 @@ class Action():
         return str(self.name)
     
     def showOptions(self,options):
-        print options
+        #print options
         idx = 0
         for opt in options:
             print(str(idx) + " : " + str(opt.display()))
